@@ -21,4 +21,4 @@ sys.path.insert(0, demo_dir)
 # And load everything from the common.py of the scripts dir
 scripts_dir= os.path.join(project_dir, 'scripts')
 sys.path.insert(0, scripts_dir)
-from common import *
+from scripts.common import *

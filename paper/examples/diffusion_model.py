@@ -14,8 +14,8 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.split(__file__)[0]))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.split(__file__)[0], '../..')))
-from diffusion_common import *
-from diffusion import ContaminantTransportModel
+from paper.examples.diffusion_common import *
+from demos.diffusion import ContaminantTransportModel
 from vuq import *
 
 
@@ -47,4 +47,4 @@ def make_model():
 
 if __name__ == '__main__':
     model = make_model()
-    print model
+    print (model)

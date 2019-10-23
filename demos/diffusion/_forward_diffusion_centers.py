@@ -13,7 +13,7 @@ import numpy as np
 import fipy as fp
 from demos.diffusion.transport_model_centers import *
 import sys
-sys.path.insert(0,'../')
+sys.path.insert(0, '../')
 from vuq import Model
 from vuq import view_as_column
 

@@ -12,5 +12,5 @@ Date:
 
 from demos.test_model_0 import *
 from demos.test_model_1 import *
-from catalysis import *
-from diffusion import *
+from demos.catalysis import *
+from demos.diffusion import *
