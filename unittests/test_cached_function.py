@@ -19,7 +19,7 @@ from vuq import *
 
 # An expensive function
 def f(x):
-    for i in xrange(1000):
+    for i in range(1000):
         x += i
     x /= 1000000
     return 2. * x
@@ -55,13 +55,13 @@ F = Foo()
 Fc = CachedFunction(F.__call__)
 
 t0 = time.time()
-for i in xrange(num_repeat):
+for i in range(num_repeat):
     y = F(X[i % X.shape[0], :])
 t1 = time.time()
-print 'Elapsed time without cache (seconds):', t1 - t0
+print ('Elapsed time without cache (seconds):', t1 - t0)
 
 t0 = time.time()
-for i in xrange(num_repeat):
+for i in range(num_repeat):
     y = Fc(X[i % X.shape[0], :])
 t1 = time.time()
-print 'Elapsed time with cache (seconds):', t1 - t0
+print ('Elapsed time with cache (seconds):', t1 - t0)

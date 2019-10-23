@@ -12,15 +12,15 @@ Date:
 import matplotlib
 matplotlib.use('Agg')
 import numpy as np
-import mpi4py.MPI as mpi
-import pymc as pm
+#import mpi4py.MPI as mpi
+import pymc3 as pm
 import pysmc as ps
 import sys
 import warnings
 warnings.filterwarnings('ignore')
 sys.path.insert(0,'.')
 sys.path.insert(0,'demos/')
-from catalysis import CatalysisModelDMNLESS
+from demos.catalysis import CatalysisModelDMNLESS
 
 
 
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     mcmc.use_step_method(ps.RandomWalk, model['sigma2'])
     smc_sampler = ps.SMC(mcmc, num_particles=10240, num_mcmc=1, verbose=4,
                          db_filename='demos/smc_catalysis.pcl',
-                         gamma_is_an_exponent=True, mpi=mpi,
+                         gamma_is_an_exponent=True, mpi=None,#mpi,
                          update_db=True)
     smc_sampler.initialize(0.)
     smc_sampler.move_to(1.)

@@ -10,8 +10,8 @@ Date:
 """
 
 
-from common import *
-import tables as tb
+from scripts.common import *
+import scripts.tables as tb
 import matplotlib.pyplot as plt
 
 
@@ -38,25 +38,25 @@ def main(options):
     f.close()
     if x_m.shape[1] < 8:
         width = x_m.shape[1] * 10 + 20
-        print 'Running Mean'.center(width)
-        print '=' * width
-        names = ['{0:10s}'.format('x_' + str(i + 1)) for i in xrange(x_m.shape[1])]
-        print '{0:10s} {1:10s}'.format('Step', 'Acc. Rate') + ' '.join(names)
-        for i in xrange(x_m.shape[0]):
-            vals = ['{0:1.6f}'.format(x_m[i, j]) + ' ' for j in xrange(x_m.shape[1])]
-            print '{0:10s} {1:1.3f}'.format(str(count[i]), acceptance_rate[i]) + ' ' * 6 + ' '.join(vals)
-        print '=' * width
-        print 'Running Std'.center(width)
-        print '=' * width
-        names = ['{0:10s}'.format('x_' + str(i + 1)) for i in xrange(x_m.shape[1])]
-        print '{0:10s} {1:10s}'.format('Step', 'Acc. Rate') + ' '.join(names)
-        for i in xrange(x_m.shape[0]):
-            vals = ['{0:1.6f}'.format(2. * x_s[i, j]) + ' ' for j in xrange(x_m.shape[1])]
-            print '{0:10s} {1:1.3f}'.format(str(count[i]), acceptance_rate[i]) + ' ' * 6 + ' '.join(vals)
-        print '=' * width
-        for i in xrange(x_m.shape[0]):
-            for j in xrange(x_m.shape[1]):
-                print '(%1.3f, %1.3f)' % (x_05[i, j], x_95[i, j])
+        print ('Running Mean'.center(width))
+        print ('=' * width)
+        names = ['{0:10s}'.format('x_' + str(i + 1)) for i in range(x_m.shape[1])]
+        print ('{0:10s} {1:10s}'.format('Step', 'Acc. Rate') + ' '.join(names))
+        for i in range(x_m.shape[0]):
+            vals = ['{0:1.6f}'.format(x_m[i, j]) + ' ' for j in range(x_m.shape[1])]
+            print ('{0:10s} {1:1.3f}'.format(str(count[i]), acceptance_rate[i]) + ' ' * 6 + ' '.join(vals))
+        print ('=' * width)
+        print ('Running Std'.center(width))
+        print ('=' * width)
+        names = ['{0:10s}'.format('x_' + str(i + 1)) for i in range(x_m.shape[1])]
+        print ('{0:10s} {1:10s}'.format('Step', 'Acc. Rate') + ' '.join(names))
+        for i in range(x_m.shape[0]):
+            vals = ['{0:1.6f}'.format(2. * x_s[i, j]) + ' ' for j in range(x_m.shape[1])]
+            print ('{0:10s} {1:1.3f}'.format(str(count[i]), acceptance_rate[i]) + ' ' * 6 + ' '.join(vals))
+        print ('=' * width)
+        for i in range(x_m.shape[0]):
+            for j in range(x_m.shape[1]):
+                print ('(%1.3f, %1.3f)' % (x_05[i, j], x_95[i, j]))
 
 
 if __name__ == '__main__':

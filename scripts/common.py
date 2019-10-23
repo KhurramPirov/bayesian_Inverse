@@ -13,7 +13,7 @@ Date:
 import sys
 import os
 import imp
-import cPickle as pickle
+import _pickle as pickle
 import numpy as np
 from optparse import OptionParser
 
@@ -75,7 +75,7 @@ def initialize_model(model_file, model_name='Model', comm=None):
     rank, size = get_rank_size(comm)
     print_once('Initializing the %s.\n' % model_name, comm=comm)
     print_once('-------------------------\n', comm=comm)
-    for i in xrange(size):
+    for i in range(size):
         if rank == i:
             try:
                 model = imp.load_source('', model_file)
@@ -110,11 +110,11 @@ def signal_fatal_error(err, err_code=1, comm=None, e=None):
     sys.stderr.write(err)
     if comm is None:
         if e is not None:
-            print e
+            print (e)
         sys.exit(1)
     else:
         if comm.Get_rank() == 0:
-            print e
+            print (e)
         comm.Abort(1)
 
 

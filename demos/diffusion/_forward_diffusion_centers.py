@@ -11,7 +11,7 @@ Date:
 
 import numpy as np
 import fipy as fp
-from transport_model_centers import *
+from demos.diffusion.transport_model_centers import *
 import sys
 sys.path.insert(0,'../')
 from vuq import Model
