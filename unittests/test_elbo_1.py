@@ -33,13 +33,13 @@ num_comp = 1
 # The (hypothetical) joint distribution
 log_p = MultivariateNormal(np.zeros((num_dim, 1)))
 log_p.C = [[0.1]]
-print ('Target:')
-print (str(log_p))
+print 'Target:'
+print str(log_p)
 
 # The approximating distribution
 log_q = MixtureOfMultivariateNormals.create(num_dim, num_comp)
-print ('Initial:')
-print (log_q)
+print 'Initial:'
+print log_q
 
 # Pick an entropy approximation
 entropy = FirstOrderEntropyApproximation()
@@ -49,12 +49,12 @@ expectation_functional = ThirdOrderExpectationFunctional(log_p)
 # Build the ELBO
 elbo = EvidenceLowerBound(entropy, expectation_functional)
 elbo_2 = EvidenceLowerBound(entropy_lb, expectation_functional)
-print ('ELBO:')
-print (str(elbo))
+print 'ELBO:'
+print str(elbo)
 
 # Evaluate the elbo
-state = (elbo(log_q))
-print (state)
+state = elbo(log_q)
+print state
 
 # Plot the elbo as a function of mu
 mus = np.linspace(-2, 2, 100)
@@ -90,7 +90,7 @@ plt.setp(ax.get_xticklabels(), fontsize=16)
 plt.setp(ax.get_yticklabels(), fontsize=16)
 ax.set_xlabel('$\mu$', fontsize=16)
 png_file = os.path.join('figures', 'test_elbo_1_varying_mu.png')
-print ('writing:', png_file)
+print 'writing:', png_file
 plt.savefig(png_file)
 
 
@@ -129,7 +129,7 @@ plt.setp(ax.get_xticklabels(), fontsize=16)
 plt.setp(ax.get_yticklabels(), fontsize=16)
 ax.set_xlabel('$C$', fontsize=16)
 png_file = os.path.join('figures', 'test_elbo_1_varying_C.png')
-print ('writing:', png_file)
+print 'writing:', png_file
 plt.savefig(png_file)
 
 # Now do a contour plot
@@ -137,8 +137,8 @@ mus = np.linspace(-1, 1, 64)
 Cs = np.linspace(0.01, 0.5, 64)
 Mus, CCs = np.meshgrid(mus, Cs)
 Z = np.zeros(Mus.shape)
-for i in range(Z.shape[0]):
-    for j in range(Z.shape[1]):
+for i in xrange(Z.shape[0]):
+    for j in xrange(Z.shape[1]):
         log_q.comp[0].mu = [Mus[i, j]]
         log_q.comp[0].C = [[CCs[i, j]]]
         state = elbo_2(log_q)
@@ -155,5 +155,5 @@ plt.setp(ax.get_yticklabels(), fontsize=16)
 cbar = fig.colorbar(cax)
 plt.setp(cbar.ax.get_xticklabels(), fontsize=16)
 png_file = os.path.join('figures', 'test_elbo_1_varying_both.png')
-print ('writing:', png_file)
+print 'writing:', png_file
 plt.savefig(png_file)
