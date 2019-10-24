@@ -15,7 +15,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.split(__file__)[0]))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.split(__file__)[0], '../..')))
 from paper.examples.diffusion_common import *
-from demos.diffusion import ContaminantTransportModel
+from diffusion import ContaminantTransportModel
 from vuq import *
 
 

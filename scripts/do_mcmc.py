@@ -12,7 +12,7 @@ Date:
 """
 
 
-from scripts.common import *
+from common import *
 import pymcmc as pm
 
 

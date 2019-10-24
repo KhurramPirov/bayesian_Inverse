@@ -11,7 +11,7 @@ Date:
 
 
 from collections import Iterable
-from common import *
+from .common import *
 from vuq import *
 
 
@@ -41,7 +41,7 @@ def convert_to_list(l, n):
 def initialize_bounds(l, u, n):
     l = convert_to_list(l, n)
     u = convert_to_list(u, n)
-    b = tuple((l[i], u[i]) for i in xrange(n))
+    b = tuple((l[i], u[i]) for i in range(n))
     return b
 
 
@@ -57,11 +57,11 @@ def main(options):
     log_prior = model['log_prior']
     # Construct the initial approximation
     comp = [MultivariateNormal(log_prior.sample().flatten())
-            for i in xrange(options.num_comp)]
+            for i in range(options.num_comp)]
     log_q = MixtureOfMultivariateNormals(comp)
     if options.mu_init is not None:
         log_q.mu = options.mu_init
-        print str(log_q)
+        print (str(log_q))
     # The entropy approximation
     entropy = eval(options.entropy_approximation + '()')
     # The expectation functional
@@ -73,8 +73,8 @@ def main(options):
     # The upper and lower bounds for everything
     mu_bounds = initialize_bounds(options.mu_lower_bound, options.mu_upper_bound, log_q.num_dim)
     C_bounds = initialize_bounds(options.C_lower_bound, options.C_upper_bound, log_q.num_dim)
-    print 'mu_bounds', mu_bounds
-    print 'C_bounds', C_bounds
+    print ('mu_bounds', mu_bounds)
+    print ('C_bounds', C_bounds)
     # The output file
     output_file = options.output
     if output_file is None:
@@ -82,13 +82,13 @@ def main(options):
                                       + 'num_comp=' + str(options.num_comp) + '.pcl')
     # Delete the output file if it exists and you want to force calculations
     if os.path.exists(output_file) and options.force:
-        print '-', output_file, 'exists'
-        print '- I am removing it'
+        print ('-', output_file, 'exists')
+        print ('- I am removing it')
         os.remove(output_file)
     # If the file exists at this point, then this is not a forced calculation
     # and we should just load it
     if os.path.exists(output_file):
-        print '- I am not repeating the calculations'
+        print ('- I am not repeating the calculations')
         with open(output_file, 'rb') as fd:
             results = pickle.load(fd)
             L = results['L']
@@ -102,7 +102,7 @@ def main(options):
                                      mu_bounds=mu_bounds,
                                      C_bounds=C_bounds,
                                      full_mu=options.optimize_full_mu)
-        print str(elbo)
+        print (str(elbo))
         # Save the results
         results = {}
         results['L'] = L
@@ -114,20 +114,20 @@ def main(options):
     w = log_q.w
     mu = log_q.mu
     C = log_q.C
-    c = np.vstack([np.diag(C[i, :, :]) for i in xrange(log_q.num_comp)])
+    c = np.vstack([np.diag(C[i, :, :]) for i in range(log_q.num_comp)])
     x_m = np.mean(w * mu, axis=0)
     # The variance of the mixture can only be approximated via sampling...
     samples = log_q.sample(options.std_samples)
     x_s = np.std(samples, axis=0)
     x_05 = np.percentile(samples, 5, axis=0)
     x_95 = np.percentile(samples, 95, axis=0)
-    print '{0:10s} {1:10s} {2:10s}'.format('Parameter', 'Mean', 'Std.')
-    print '-' * 32
-    for i in xrange(log_q.num_dim):
-        print '{0:10s} {1:4.6f} +-{2:2.6f}'.format('x_' + str(i+1), x_m[i], 1.96 * x_s[i])
-    for i in xrange(log_q.num_dim):
-        print '(%1.3f, %1.3f)' % (x_05[i], x_95[i])
-    print 'Number of evaluations:', nfev
+    print ('{0:10s} {1:10s} {2:10s}'.format('Parameter', 'Mean', 'Std.'))
+    print ('-' * 32)
+    for i in range(log_q.num_dim):
+        print ('{0:10s} {1:4.6f} +-{2:2.6f}'.format('x_' + str(i+1), x_m[i], 1.96 * x_s[i]))
+    for i in range(log_q.num_dim):
+        print ('(%1.3f, %1.3f)' % (x_05[i], x_95[i]))
+    print ('Number of evaluations:', nfev)
 
 
 if __name__ == '__main__':

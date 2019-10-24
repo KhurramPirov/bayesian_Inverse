@@ -11,10 +11,10 @@ Date:
 
 
 from optparse import OptionParser
-from paper.examples.diffusion_common import *
-from paper.examples import diffusion_model
+from diffusion_common import *
+import diffusion_model
 import matplotlib.pyplot as plt
-import _pickle as pickle
+import cPickle as pickle
 import tables as tb
 import pandas as pd
 import pysmc as ps
@@ -89,8 +89,8 @@ def main(options):
     w = log_q.w
     mu =log_q.mu
     C = log_q.C
-    c = np.vstack([np.diag(C[i, :, :]) for i in range(log_q.num_comp)])
-    for i in range(omega.shape[1]):
+    c = np.vstack([np.diag(C[i, :, :]) for i in xrange(log_q.num_comp)])
+    for i in xrange(omega.shape[1]):
         fig = plt.figure()
         ax = fig.add_subplot(111)
         ax.hist(omega[:, i], alpha=0.5, normed=True)
@@ -101,7 +101,7 @@ def main(options):
         xx_i = np.log(x_i)[:, None] if i == 2 else x_i[:, None]
         # Create a 1D mixture
         comp = [MultivariateNormal([[mu[j, i]]], C=[[c[j, i]]])
-                for j in range(log_q.num_comp)]
+                for j in xrange(log_q.num_comp)]
         log_q_i = MixtureOfMultivariateNormals(comp)
         y_i = np.exp(log_q_i(xx_i)) / (x_i if i == 2 else 1.)
         ax.plot(x_i, y_i, 'r-', linewidth=2)
@@ -130,7 +130,7 @@ def main(options):
         plt.tight_layout()
         png_file = os.path.abspath(os.path.splitext(options.var_file)[0] +
                                    '_input_' + str(i) + '.png')
-        print ('- writing', png_file)
+        print '- writing', png_file
         plt.savefig(png_file)
         del fig
     # Draw the error of MCMC as a function of the number of evaluations

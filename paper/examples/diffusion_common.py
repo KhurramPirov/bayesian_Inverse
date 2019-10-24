@@ -10,7 +10,7 @@ Date:
 """
 
 
-from paper.examples.examples_common import *
+from .examples_common import *
 import numpy as np
 
 

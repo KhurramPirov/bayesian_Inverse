@@ -10,7 +10,7 @@ Date:
 """
 
 
-from demos.test_model_0 import *
-from demos.test_model_1 import *
-from demos.catalysis import *
-from demos.diffusion import *
+from .test_model_0 import *
+from .test_model_1 import *
+from .catalysis import *
+from .diffusion import *

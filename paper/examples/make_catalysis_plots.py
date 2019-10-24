@@ -11,11 +11,11 @@ Date:
 
 
 from optparse import OptionParser
-from paper.examples.catalysis_common import *
-from paper.examples import catalysis_dimensionless_pymc_model
-from paper.examples import catalysis_dimensionless_model
+from catalysis_common import *
+import catalysis_dimensionless_pymc_model
+import catalysis_dimensionless_model
 import matplotlib.pyplot as plt
-import _pickle as pickle
+import cPickle as pickle
 import tables as tb
 import pandas as pd
 import pysmc as ps
@@ -40,8 +40,8 @@ def main(options):
         Y = var_results['output_samples']
     else:
         Y = []
-        for i in range(options.num_samples):
-            print ('taking sample', i + 1)
+        for i in xrange(options.num_samples):
+            print 'taking sample', i + 1
             omega = log_q.sample().flatten()
             x = omega[:5]
             sigma = np.exp(omega[5])
@@ -69,12 +69,12 @@ def main(options):
                                        '_ch=' + str(chain)
     mcmc_output_file = mcmc_file_prefix + '_output.pcl'
     if os.path.exists(mcmc_output_file) and not options.force:
-        print ('- I found', mcmc_output_file)
+        print '- I found', mcmc_output_file
         with open(mcmc_output_file, 'rb') as fd:
             Y_mcmc = pickle.load(fd)
     elif not options.skip_mcmc_output:
-        print ('- computing the output of the model for each one of the MCMC samples')
-        print ('- be patient')
+        print '- computing the output of the model for each one of the MCMC samples'
+        print '- be patient'
         Y_mcmc = catal_model(x)['f']
         with open(mcmc_output_file, 'wb') as fd:
             pickle.dump(Y_mcmc, fd, protocol=pickle.HIGHEST_PROTOCOL)
@@ -90,8 +90,8 @@ def main(options):
     w = log_q.w
     mu =log_q.mu
     C = log_q.C
-    c = np.vstack([np.diag(C[i, :, :]) for i in range(log_q.num_comp)])
-    for i in range(omega.shape[1]):
+    c = np.vstack([np.diag(C[i, :, :]) for i in xrange(log_q.num_comp)])
+    for i in xrange(omega.shape[1]):
         fig = plt.figure()
         ax = fig.add_subplot(111)
         ax.hist(omega[:, i], alpha=0.5, normed=True)
@@ -101,7 +101,7 @@ def main(options):
         x_i = np.linspace(x_min, x_max, 100)
         # Create a 1D mixture
         comp = [MultivariateNormal([[mu[j, i]]], C=[[c[j, i]]])
-                for j in range(log_q.num_comp)]
+                for j in xrange(log_q.num_comp)]
         log_q_i = MixtureOfMultivariateNormals(comp)
         y_i = np.exp(log_q_i(np.log(x_i[:, None]))) / x_i
         mu_i = 0. if i < 5 else -1.
@@ -126,7 +126,7 @@ def main(options):
         plt.tight_layout()
         png_file = os.path.abspath(os.path.splitext(options.var_file)[0] +
                                    '_input_' + str(i) + '.png')
-        print ('- writing', png_file)
+        print '- writing', png_file
         plt.savefig(png_file)
         del fig
     # Draw the error of MCMC as a function of the number of evaluations
