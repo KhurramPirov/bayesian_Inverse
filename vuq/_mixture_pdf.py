@@ -16,7 +16,6 @@ __all__ = ['MixturePDF']
 import numpy as np
 from scipy.misc import logsumexp
 from collections import Iterable
-from itertools import izip
 import math
 try:
     # If this fails, then you don't have sklearn
@@ -165,7 +164,7 @@ class MixturePDF(PDFBase):
         s += 'Num comp: ' + str(self.num_comp) + '\n'
         s += 'Weights:\n'
         s += str(self.w) + '\n'
-        for i in xrange(self.num_comp):
+        for i in range(self.num_comp):
             s += 'Comp ' + str(i) + '\n'
             s += str(self.comp[i]) + '\n'
         return s

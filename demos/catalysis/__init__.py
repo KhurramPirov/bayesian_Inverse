@@ -9,7 +9,7 @@ Date:
 
 """
 
-from _forward_model import *
-from _forward_model_dmnless import *
-from _forward_full_model import *
-from _forward_model_dmnl_y0 import *
+from demos.catalysis._forward_model import *
+from demos.catalysis._forward_model_dmnless import *
+from demos.catalysis._forward_full_model import *
+from demos.catalysis._forward_model_dmnl_y0 import *

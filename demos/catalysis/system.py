@@ -28,7 +28,7 @@ def f1(t, y, A):
     f_y_0 = f0(t, y_0, A)
     y_1 = y[d:d + d**3].reshape((d, d, d))
     f_y_1 = np.einsum('ij,jkl->ikl', A, y_1)
-    for i in xrange(d):
+    for i in range(d):
         f_y_1[i, i, :] += y_0
     return np.hstack([f_y_0, f_y_1.flatten()])
 
@@ -41,16 +41,16 @@ def f2(t, y, A):
     f_y_0 = f0(t, y_0, A)
     y_1 = y[d:d + d**3].reshape((d, d, d))
     f_y_1 = np.einsum('ij,jkl->ikl', A, y_1)
-    for i in xrange(d):
+    for i in range(d):
         f_y_1[i, i, :] += y_0
     #return np.hstack([f_y_0, f_y_1.flatten()])
     y_2 = y[d+d**3:d+d**3+d**5].reshape((d,d**2,d**2))
     f_y_2 = np.einsum('ij,jkl->ikl',A, y_2)
-    for i in xrange(d):
-        for j in xrange(i*d,(i+1)*d):
+    for i in range(d):
+        for j in range(i*d,(i+1)*d):
             f_y_2[i,j,:] += y_1[j-i*d,:,:].flatten()
-    for i in xrange(d):
-        for j in xrange(i*d,(i+1)*d):
+    for i in range(d):
+        for j in range(i*d,(i+1)*d):
             f_y_2[i,:,j] += y_1[j-i*d,:,:].flatten()
     return np.hstack([f_y_0, f_y_1.flatten(), f_y_2.flatten()])
     
@@ -60,7 +60,7 @@ def loss(A, t, y):
     r.set_initial_value(y[0, :], t[0]).set_f_params(A)
     y_m = np.zeros((t.shape[0], r.y.shape[0]))
     y_m[0, :] = r.y
-    for i in xrange(1, t.shape[0]):
+    for i in range(1, t.shape[0]):
         r.integrate(t[i])
         y_m[i, :] = r.y
     tmp = y_m - y
@@ -73,7 +73,7 @@ def dloss(A, t, y):
     r.set_initial_value(np.hstack([y[0, :], np.zeros((d ** 3, ))])).set_f_params(A)
     y_m = np.zeros((t.shape[0], r.y.shape[0]))
     y_m[0, :] = r.y
-    for i in xrange(1, t.shape[0]):
+    for i in range(1, t.shape[0]):
         r.integrate(t[i])
         y_m[i, :] = r.y
     y_m0 = y_m[:, :d]

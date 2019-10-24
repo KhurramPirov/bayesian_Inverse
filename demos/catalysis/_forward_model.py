@@ -10,8 +10,8 @@ Date:
 
 
 import numpy as np
-from model_1 import *
-from model_2 import *
+from .model_1 import *
+from .model_2 import *
 import sys
 sys.path.insert(0,'../')
 from vuq import Model

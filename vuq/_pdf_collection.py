@@ -14,7 +14,6 @@ __all__ = ['PDFCollection']
 
 
 from collections import Iterable
-from itertools import izip
 import numpy as np
 from scipy.sparse import block_diag
 from . import PDFBase
@@ -68,7 +67,7 @@ class PDFCollection(PDFBase):
         Extracts the parts of the input pertaining to each component.
         """
         return [self._extract_part(x, i)
-                for i in xrange(self.num_comp)]
+                for i in range(self.num_comp)]
 
     def __init__(self, collection, name='PDF Collection'):
         """
@@ -89,7 +88,7 @@ class PDFCollection(PDFBase):
         """
         x_parts = self._extract_parts(x)
         return [getattr(c, func)(x_p)
-                for x_p, c in izip(x_parts, self.collection)]
+                for x_p, c in zip(x_parts, self.collection)]
 
     def _eval(self, x):
         """
@@ -122,7 +121,7 @@ class PDFCollection(PDFBase):
         Return a string representation of the object.
         """
         s = super(PDFCollection, self).__str__() + '\n'
-        for i in xrange(self.num_comp):
+        for i in range(self.num_comp):
             s += 'Component: ' + str(i) + '\n'
             s += str(self.collection[i]) + '\n'
         return s

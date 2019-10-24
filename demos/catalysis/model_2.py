@@ -3,7 +3,7 @@ Implements the catalysis model as found in Yiannis paper.
 
 """
 
-from system import *
+from .system import *
 
 
 def make_A(kappa):

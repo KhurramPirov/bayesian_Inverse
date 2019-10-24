@@ -152,7 +152,7 @@ class PDFBase(object):
 
         :param size:    The number of samples to return.
         """
-        return np.array([self._sample() for i in xrange(size)])
+        return np.array([self._sample() for i in range(size)])
 
     def __str__(self):
         """
