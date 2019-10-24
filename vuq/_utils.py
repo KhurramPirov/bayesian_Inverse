@@ -60,7 +60,7 @@ def call_many(x, func, return_numpy=True):
                             Otherwise, it returns a list.
     """
     x = regularize_array(x)
-    out = [func(x[i, :]) for i in xrange(x.shape[0])]
+    out = [func(x[i, :]) for i in range(x.shape[0])]
     if return_numpy:
         return np.array(out)
     return out

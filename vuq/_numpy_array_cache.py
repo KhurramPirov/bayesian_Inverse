@@ -61,7 +61,7 @@ class NumpyArrayCache(Cache):
         # We start iterating from the end of the sequence because it is more
         # probably that we will be asked to query a value from the top of the
         # cache
-        for j in xrange(self.size - 1, -1, -1):
+        for j in range(self.size - 1, -1, -1):
             d = self._dist(value, self._cache[i])
             if d <= self._tol:
                 i = j

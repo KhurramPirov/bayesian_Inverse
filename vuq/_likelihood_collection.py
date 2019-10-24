@@ -15,7 +15,6 @@ __all__ = ['LikelihoodCollection']
 
 
 from collections import Iterable
-from itertools import izip
 import numpy as np
 from scipy.sparse import block_diag
 from . import Model
@@ -66,7 +65,7 @@ class LikelihoodCollection(Likelihood):
         Extracts the parts of the input pertaining to each component.
         """
         return [self._extract_part(x, i, idx, num_dim)
-                for i in xrange(self.num_comp)]
+                for i in range(self.num_comp)]
 
     def __init__(self, model, collection, name='Likelihood Collection'):
         """
@@ -92,7 +91,7 @@ class LikelihoodCollection(Likelihood):
         """
         fx_part = self._extract_parts(fx, self._idx_dim, self.model.num_input)
         theta_part = self._extract_parts(theta, self._idx_like_params, self.num_like_params)
-        states = [c._noise_eval(f, t) for f, t in izip(fx_part, theta_part)]
+        states = [c._noise_eval(f, t) for f, t in zip(fx_part, theta_part)]
         state = {}
         state['L'] = np.sum([s['L'] for s in states])
         state['L_grad_f'] = np.hstack([s['L_grad_f'] for s in states])

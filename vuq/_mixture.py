@@ -16,7 +16,6 @@ __all__ = ['MixtureOfMultivariateNormals']
 import numpy as np
 from scipy.misc import logsumexp
 from collections import Iterable
-from itertools import izip
 import math
 try:
     # If this fails, then you don't have sklearn
@@ -87,7 +86,7 @@ class MixtureOfMultivariateNormals(PDFBase):
         value = regularize_array(value)
         assert value.shape[0] == self.num_comp
         assert value.shape[1] == self.num_dim
-        for i in xrange(self.num_comp):
+        for i in range(self.num_comp):
             self.comp[i].mu = value[i, :]
 
     @property
@@ -109,7 +108,7 @@ class MixtureOfMultivariateNormals(PDFBase):
         assert value.shape[0] == self.num_comp
         assert value.shape[1] == self.num_dim
         assert value.shape[2] == self.num_dim
-        for i in xrange(self.num_comp):
+        for i in range(self.num_comp):
             self.comp[i].C = value[i, :, :]
 
     @w.setter
@@ -235,7 +234,7 @@ class MixtureOfMultivariateNormals(PDFBase):
         :type num_comp: int
         """
         comp = [MultivariateNormal(np.random.randn(num_dim))
-                for i in xrange(num_comp)]
+                for i in range(num_comp)]
         return MixtureOfMultivariateNormals(comp)
 
     @staticmethod
@@ -255,7 +254,7 @@ class MixtureOfMultivariateNormals(PDFBase):
         mu = gmm.means_
         C = gmm.covars_
         w = gmm.weights_
-        comp = [MultivariateNormal(mu[i, :], C=C) for i in xrange(gmm.n_components)]
+        comp = [MultivariateNormal(mu[i, :], C=C) for i in range(gmm.n_components)]
         return MixtureOfMultivariateNormals(comp, w=w)
 
     def propagate(self, model):
@@ -272,7 +271,7 @@ class MixtureOfMultivariateNormals(PDFBase):
         s += 'Num comp: ' + str(self.num_comp) + '\n'
         s += 'Weights:\n'
         s += str(self.w) + '\n'
-        for i in xrange(self.num_comp):
+        for i in range(self.num_comp):
             s += 'Comp ' + str(i) + '\n'
             s += str(self.comp[i]) + '\n'
         return s

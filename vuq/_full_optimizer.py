@@ -82,7 +82,7 @@ class FullOptimizer(object):
             C_old = log_q.C[:]
             k = idx[0].shape[0]
             ZZ = []
-            for i in xrange(log_q.num_comp):
+            for i in range(log_q.num_comp):
                 Z = np.zeros((log_q.num_dim, log_q.num_dim))
                 Z[idx] = L[i * k : (i + 1) * k]
                 ZZ.append(Z)
@@ -94,26 +94,26 @@ class FullOptimizer(object):
             L_grad_C = state['L_grad_C']
             L_grad_Z = 2. * np.einsum('ijk,ikl->ijl', L_grad_C, ZZ)
             L_grad_Z = np.hstack([L_grad_Z[i, :, :][idx]
-                                  for i in xrange(log_q.num_comp)])
+                                  for i in range(log_q.num_comp)])
             log_q.C = C_old
-            print L, LL
+            print (L, LL)
             return -LL, -L_grad_Z
         idx = np.tril_indices(log_q.num_dim)
-        L0 = np.hstack([log_q.comp[i].C[idx] for i in xrange(log_q.num_comp)])
+        L0 = np.hstack([log_q.comp[i].C[idx] for i in range(log_q.num_comp)])
         tmp = np.ndarray((log_q.num_dim, log_q.num_dim), dtype='object')
-        for i in xrange(log_q.num_dim):
-            for j in xrange(log_q.num_dim):
+        for i in range(log_q.num_dim):
+            for j in range(log_q.num_dim):
                 if i == j:
                     tmp[i, j] = (0.5, None)
                 else:
                     tmp[i, j] = (None, None)
-        L_bounds = tuple(tmp[idx] for i in xrange(log_q.num_comp))
+        L_bounds = tuple(tmp[idx] for i in range(log_q.num_comp))
         L_bounds = tuple(xx for x in L_bounds for xx in x)
         args = (log_q, self.elbo, idx)
         res = minimize(f_L, L0, args=args, jac=True, method='L-BFGS-B',
                        bounds=L_bounds)
         k = idx[0].shape[0]
-        for i in xrange(log_q.num_comp):
+        for i in range(log_q.num_comp):
             Z = np.zeros((log_q.num_dim, log_q.num_dim))
             Z[idx] = res.x[i * k : (i + 1) * k]
             C = np.dot(Z, Z.T)
@@ -123,6 +123,6 @@ class FullOptimizer(object):
         """
         Optimize.
         """
-        for i in xrange(max_it):
+        for i in range(max_it):
             self.optimize_full_mu(log_q)
             self.optimize_full_L(log_q)
