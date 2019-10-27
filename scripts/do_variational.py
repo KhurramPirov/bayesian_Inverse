@@ -1,25 +1,9 @@
-"""
-Solve the inverse problem using the variational methodology.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    9/10/2014
-
-"""
-
-
 from collections import Iterable
 from .common import *
 from vuq import *
 
 
 def parse_expr_callback(option, opt, value, parser):
-    """
-    This is not very good for security, but it is a fast
-    way to pass options.
-    """
     if value is not None:
         setattr(parser.values, option.dest, eval(value))
 

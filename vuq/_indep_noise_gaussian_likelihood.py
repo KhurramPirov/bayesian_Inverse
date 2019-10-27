@@ -1,15 +1,3 @@
-"""
-A class that represents an Gaussian likelihood with independent noise (diagonal covatiance) .
-
-Author:
-    Panagiotis Tsilifis
-
-Date:
-    5/25/2014
-
-"""
-
-
 __all__ = ['IndepNoiseGaussianLikelihood']
 
 

@@ -1,15 +1,3 @@
-"""
-A third order expectation functional.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/5/2014
-
-"""
-
-
 __all__ = ['ThirdOrderExpectationFunctional']
 
 
@@ -20,22 +8,6 @@ from . import MixtureOfMultivariateNormals
 
 
 class ThirdOrderExpectationFunctional(FirstOrderExpectationFunctional):
-
-    """
-    A class representing a third order expectation functional over a mixture:
-
-    .. math::
-
-        \mathcal{F}_2[q] = \mathcal{F}_1[q] + \\frac{1}{2}\sum_{i=1}^Nw_i C_i:H_i,
-
-    where
-
-    .. math::
-
-        H_i = \\nabla^2 p(\omega = \mu_i).
-
-    """
-
     def __init__(self, log_p, name='Third Order Expectation Functional'):
         """
         Initialize the object.

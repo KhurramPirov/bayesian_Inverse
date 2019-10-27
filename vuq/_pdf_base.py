@@ -1,15 +1,3 @@
-"""
-A class that represents the log PDF of the input.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/19/2014
-
-"""
-
-
 __all__ = ['PDFBase']
 
 

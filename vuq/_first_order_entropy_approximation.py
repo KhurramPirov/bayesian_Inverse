@@ -1,15 +1,3 @@
-"""
-A first order approximation to the entropy.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/3/2014
-
-"""
-
-
 __all__ = ['FirstOrderEntropyApproximation']
 
 

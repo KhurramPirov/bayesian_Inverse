@@ -1,15 +1,3 @@
-"""
-A multivariate Student-t PDF.
-
-Author:
-    Panagiotis Tsilifis
-
-Date:
-    6/5/2014
-
-"""
-
-
 __all__ = ['MultivariateT']
 
 

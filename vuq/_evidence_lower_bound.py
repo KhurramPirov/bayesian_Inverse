@@ -1,15 +1,3 @@
-"""
-A class representing the lower bound to the evidence.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/5/2014
-
-"""
-
-
 __all__ = ['EvidenceLowerBound']
 
 

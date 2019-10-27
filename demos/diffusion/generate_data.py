@@ -1,14 +1,3 @@
-"""
-Generate data for the diffusion forward model.
-
-Author:
-    Panagiotis Tsilifis
-
-Date:
-    6/12/2014
-
-"""
-
 import numpy as np
 import fipy as fp
 import os

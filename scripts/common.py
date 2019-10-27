@@ -1,15 +1,3 @@
-"""
-Some routines that are common to all scripts.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    9/9/2014
-
-"""
-
-
 import sys
 import os
 import imp

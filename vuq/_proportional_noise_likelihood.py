@@ -1,16 +1,3 @@
-"""
-A likelihood that has noise propotional to the observed signal (which has
-to be a positive quantity).
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/10/2014
-
-"""
-
-
 __all__ = ['ProportionalNoiseLikelihood']
 
 

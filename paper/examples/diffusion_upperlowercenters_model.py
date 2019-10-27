@@ -1,21 +1,9 @@
-"""
-The upper-lower-centers diffusion model.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    9/13/2014
-
-"""
-
-
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.split(__file__)[0]))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.split(__file__)[0], '../..')))
-from diffusion_common import *
-from diffusion import ContaminantTransportModelCenter
+from .diffusion_common import *
+from demos.diffusion import ContaminantTransportModelCenter
 from vuq import *
 
 
@@ -47,4 +35,4 @@ def make_model():
 
 if __name__ == '__main__':
     model = make_model()
-    print model
+    print (model)

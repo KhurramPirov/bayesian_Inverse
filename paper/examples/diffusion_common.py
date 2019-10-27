@@ -1,15 +1,3 @@
-"""
-Things that are common to the diffusion example.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    9/13/2014
-
-"""
-
-
 from .examples_common import *
 import numpy as np
 

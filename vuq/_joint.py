@@ -1,15 +1,3 @@
-"""
-Implements a class that represents the joint distribution (likelihood x prior).
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/23/2014
-
-"""
-
-
 __all__ = ['Joint']
 
 

@@ -1,15 +1,3 @@
-"""
-A generic optimizer class.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/5/2014
-
-"""
-
-
 __all__ = ['FullOptimizer']
 
 

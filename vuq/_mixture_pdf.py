@@ -1,15 +1,3 @@
-"""
-A class representing a Mixture of various pdfs .
-
-Author:
-    Panagiotis Tsilifis
-
-Date:
-    6/05/2014
-
-"""
-
-
 __all__ = ['MixturePDF']
 
 
@@ -18,9 +6,6 @@ from scipy.misc import logsumexp
 from collections import Iterable
 import math
 try:
-    # If this fails, then you don't have sklearn
-    # If this is the case, then you cannot use the
-    # the function MixtureOfMultivariateNormals.fit().
     from sklearn import mixture
 except:
     pass

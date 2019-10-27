@@ -1,15 +1,3 @@
-"""
-A class that represents an isotropic Gaussian likelihood.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/23/2014
-
-"""
-
-
 __all__ = ['IsotropicGaussianLikelihood']
 
 

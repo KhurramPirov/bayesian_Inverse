@@ -1,15 +1,3 @@
-"""
-A multivariate normal PDF.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/19/2014
-
-"""
-
-
 __all__ = ['MultivariateNormal']
 
 

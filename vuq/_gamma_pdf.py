@@ -1,14 +1,3 @@
-"""
-A multivariate Gamma PDF (product of independent Gammas)
-
-Author:
-    Panagiotis Tsilifis
-Date:
-    05/21/2014
-
-"""
-
-
 __all__ = ['GammaPDF']
 
 

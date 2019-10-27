@@ -1,15 +1,3 @@
-"""
-Implementation of a cached function of a numpy array input.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/6/2014
-
-"""
-
-
 __all__ = ['CachedFunction']
 
 

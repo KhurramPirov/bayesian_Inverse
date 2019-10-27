@@ -1,14 +1,4 @@
-"""
-Solve numerically the diffusion equation using the fipy package
-
-Author:
-    Panagiotis Tsilifis
-
-Date:
-    6/16/2014
-"""
-
-import numpy as np 
+import numpy as np
 import fipy as fp
 import matplotlib.pyplot as plt 
 

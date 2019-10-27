@@ -1,14 +1,3 @@
-"""
-A multivariate Uniform PDF. 
-
-Author:
-    Panagiotis Tsilifis
-Date:
-    06/16/2014
-
-"""
-
-
 __all__ = ['UniformND']
 
 

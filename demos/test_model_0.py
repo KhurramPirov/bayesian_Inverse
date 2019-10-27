@@ -1,15 +1,3 @@
-"""
-A trivial test model.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/16/2014
-
-"""
-
-
 __all__ = ['TestModel0']
 
 

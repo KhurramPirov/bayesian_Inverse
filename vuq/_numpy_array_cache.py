@@ -1,15 +1,3 @@
-"""
-A cache specifically designed for numpy arrays.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/6/2014
-
-"""
-
-
 __all__ = ['NumpyArrayCache']
 
 

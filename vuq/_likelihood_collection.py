@@ -1,16 +1,3 @@
-"""
-This is a likelihood defined on a big output that consists of independent
-parts that act on disjoint parts of the output.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/10/2014
-
-"""
-
-
 __all__ = ['LikelihoodCollection']
 
 

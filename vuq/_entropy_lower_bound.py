@@ -1,15 +1,3 @@
-"""
-A lower bound to the entropy derived by making use of Jensen's inequality.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    16/9/2014
-
-"""
-
-
 __all__ = ['EntropyLowerBound']
 
 

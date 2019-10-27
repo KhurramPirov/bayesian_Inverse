@@ -1,15 +1,3 @@
-"""
-The Model class.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/21/2014
-
-"""
-
-
 import numpy as np
 from . import call_many
 from . import CachedFunction

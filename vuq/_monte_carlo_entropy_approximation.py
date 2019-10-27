@@ -1,17 +1,3 @@
-"""
-A Monte Carlo approximation to the entropy.
-
-This approximation should be assymptotically exact.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/3/2014
-
-"""
-
-
 __all__ = ['MonteCarloEntropyApproximation']
 
 

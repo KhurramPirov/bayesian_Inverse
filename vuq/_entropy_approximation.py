@@ -1,15 +1,3 @@
-"""
-A class representing an approximation to the entropy.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/3/2014
-
-"""
-
-
 __all__ = ['EntropyApproximation']
 
 

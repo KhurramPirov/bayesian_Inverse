@@ -1,14 +1,3 @@
-"""
-A multivariate uninformative PDF
-
-Author:
-    Panagiotis Tsilifis
-Date:
-    05/21/2014
-
-"""
-
-
 __all__ = ['UninformativePDF']
 
 

@@ -1,14 +1,3 @@
-"""
-Forward problem with two sources. 
-
-Author:
-    Panagiotis Tsilifis
-Date:
-    06/16/2014
-
-"""
-
-
 import numpy as np
 import fipy as fp
 from .transport_model_upperleft import *

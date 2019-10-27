@@ -1,16 +1,3 @@
-"""
-Initialize the Variational UQ Python module.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/19/2014
-    9/17/2014
-
-"""
-
-
 from vuq._utils import *
 from vuq._cache import *
 from vuq._numpy_array_cache import *

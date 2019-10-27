@@ -1,21 +1,9 @@
-"""
-The classic diffusion model.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    9/13/2014
-
-"""
-
-
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.split(__file__)[0]))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.split(__file__)[0], '../..')))
 from paper.examples.diffusion_common import *
-from diffusion import ContaminantTransportModel
+from demos.diffusion import ContaminantTransportModel
 from vuq import *
 
 

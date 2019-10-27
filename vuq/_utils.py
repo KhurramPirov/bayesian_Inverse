@@ -1,15 +1,3 @@
-"""
-Various utilities used throughout the code.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/19/2014
-
-"""
-
-
 __all__ = ['regularize_array', 'make_vector', 'call_many', 'view_as_column',
            'euclidean_distance']
 

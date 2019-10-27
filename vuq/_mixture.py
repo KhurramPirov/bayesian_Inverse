@@ -1,15 +1,3 @@
-"""
-A class representing a Mixture of Gaussians.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/19/2014
-
-"""
-
-
 __all__ = ['MixtureOfMultivariateNormals']
 
 

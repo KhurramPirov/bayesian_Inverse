@@ -1,15 +1,3 @@
-"""
-A class representing the expecation of a log PDF over a mixture.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    6/5/2014
-
-"""
-
-
 __all__ = ['ExpectationFunctional']
 
 

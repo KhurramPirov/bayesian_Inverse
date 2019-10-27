@@ -1,15 +1,3 @@
-"""
-A class that represents a collection of PDF's.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    5/22/2014
-
-"""
-
-
 __all__ = ['PDFCollection']
 
 

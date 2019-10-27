@@ -1,14 +1,3 @@
-"""
-Some methods common to all examples.
-
-Author:
-    Ilias Bilionis
-
-Date:
-    9/9/2014
-
-"""
-
 import sys
 import os
 
